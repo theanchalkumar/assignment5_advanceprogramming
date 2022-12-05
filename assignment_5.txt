@@ -1,0 +1,80 @@
+1.
+
+def f(n):
+    n = n/2
+    b = n - int(n)
+    d = {0.5:2, 0.0:8}
+    return (d[b])
+
+print(f(1))
+print(f(2))
+print(f(3))
+
+2.
+
+def majority_vote(l):
+    
+    N = len(l)
+    for item in l:
+        if l.count(item) > (N/2):
+            return item
+        else:
+            return 'None'
+
+print(majority_vote(["A", "A", "B"]))  
+print(majority_vote(["A", "A", "A", "B", "C", "A"]))
+print(majority_vote(["A", "B", "B", "A", "C", "C"]))
+
+3.
+
+def censor_string(s,l,s1):
+    l = [i.lower() for i in l]
+    s = s.lower().rstrip('?')
+    for word in s.split(' '):
+        if word in l:
+            s = s.replace(word,s1 * len(word),1)
+    return s    
+
+print(censor_string("Today is a Wednesday!", ["Today", "a"], "-"))
+print(censor_string("The cow jumped over the moon.", ["cow", "over"], "*"))
+print(censor_string("Why did the chicken cross the road?", ["Did", "chicken", "road"], "*"))
+
+4.
+
+def is_polydivisible(n):
+    n1 = str(n)
+
+    if n % len(n1) == 0:
+        return True
+    else:
+        return False
+    
+print(is_polydivisible(1))    
+print(is_polydivisible(12))    
+print(is_polydivisible(123))    
+print(is_polydivisible(1232))    
+print(is_polydivisible(12322))
+print(is_polydivisible(123220))
+
+5.
+
+def sum_primes(l):
+    sum1 = 0 
+    flag = 0
+    if l:
+        for n in l:
+            if n == 2:
+                sum1 += n
+            elif n > 2:            
+                for i in range(2,n):
+                    if n % i == 0:
+                        break
+                else:
+                    sum1 += n
+        return sum1
+    else:
+        return None
+
+print(sum_primes([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+print(sum_primes([2, 3, 4, 11, 20, 50, 71]))
+print(sum_primes([]))
